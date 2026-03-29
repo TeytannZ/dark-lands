@@ -477,6 +477,128 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
+# WHAT SHOULD BE DONE
+st.markdown("<div class='divider'></div>", unsafe_allow_html=True)
+st.markdown("<div class='section-label'>What Should Be Done — Recommended Actions</div>", unsafe_allow_html=True)
+st.markdown("""
+<div class='explain-box'>
+    💡 <strong>Data without action is useless.</strong> Based on what our satellites revealed,
+    here are the concrete steps that governments, NGOs, and communities should take —
+    prioritized by urgency and impact.
+</div>
+""", unsafe_allow_html=True)
+
+actions = [
+    {
+        'priority': '🔴 URGENT',
+        'color': '#e63946',
+        'title': 'Emergency Water Infrastructure in 9 Critical Regions',
+        'who': 'Government + International Aid',
+        'what': 'Deploy emergency water supply systems in Tataouine, Kebili, Tozeur, Gafsa, and Kasserine. These regions have less than 100mm of annual rainfall — far below survival threshold for farming.',
+        'sdg': 'SDG 6 — Clean Water',
+        'impact': 'Prevents complete collapse of remaining farmland and halts forced migration of ~500,000 people.',
+    },
+    {
+        'priority': '🔴 URGENT',
+        'color': '#e63946',
+        'title': 'Activate Dark Lands Early Warning System Nationally',
+        'who': 'Ministry of Agriculture + Ministry of Environment',
+        'what': 'Use this satellite dashboard as an official monitoring tool. Set up automatic alerts when any region crosses the vulnerability threshold of 75/100 — giving 6-12 months of warning before crisis peaks.',
+        'sdg': 'SDG 13 — Climate Action',
+        'impact': 'Converts reactive crisis response into proactive prevention — saving millions in emergency aid costs.',
+    },
+    {
+        'priority': '🟠 HIGH',
+        'color': '#f4a261',
+        'title': 'Launch Drought-Resistant Crop Programs in Interior Tunisia',
+        'who': 'Ministry of Agriculture + FAO Tunisia',
+        'what': 'Replace traditional water-intensive crops (wheat, barley) with drought-resistant varieties in Sidi Bouzid, Kairouan, and Siliana. Satellite NDVI data shows exactly which fields to target first.',
+        'sdg': 'SDG 2 — Zero Hunger',
+        'impact': 'Could stabilize food production in 3 critical regions and reduce wheat import dependency from 82% back toward 60%.',
+    },
+    {
+        'priority': '🟠 HIGH',
+        'color': '#f4a261',
+        'title': 'Develop Rural-to-Urban Migration Support Programs',
+        'who': 'Social Affairs Ministry + Local NGOs',
+        'what': 'Nighttime light data confirms people ARE leaving. Rather than ignoring it, create structured migration support — job training, housing assistance, and community centers in Tunis, Sfax, and Sousse for incoming rural families.',
+        'sdg': 'SDG 10 — Reduced Inequalities',
+        'impact': 'Reduces social instability and prevents slum formation in cities currently absorbing climate migrants.',
+    },
+    {
+        'priority': '🟡 MEDIUM',
+        'color': '#e9c46a',
+        'title': 'Reforestation and Soil Restoration in Abandoned Farmlands',
+        'who': 'Environment Ministry + International Climate Funds',
+        'what': 'Use satellite NDVI maps to identify abandoned farmlands and launch targeted reforestation. Even partial restoration can improve local rainfall patterns and reduce desertification spread.',
+        'sdg': 'SDG 15 — Life on Land',
+        'impact': 'Long-term reversal of desertification in 4-6 currently moderate-risk regions before they become critical.',
+    },
+    {
+        'priority': '🟡 MEDIUM',
+        'color': '#e9c46a',
+        'title': 'Solar Energy Deployment in Energy-Poor Rural Regions',
+        'who': 'STEG + Private Sector + Green Climate Fund',
+        'what': 'Interior Tunisia has the highest solar potential in North Africa but lowest energy access. Deploy off-grid solar systems in the 9 critical regions to power water pumps, irrigation, and basic services.',
+        'sdg': 'SDG 7 — Clean Energy',
+        'impact': 'Enables local water pumping and food storage — reducing dependence on grid infrastructure that does not reach remote villages.',
+    },
+]
+
+actions_html = ""
+for a in actions:
+    actions_html += f"""
+    <div style='background:#0f1d2e;border:1px solid {a["color"]}22;border-left:4px solid {a["color"]};
+                border-radius:8px;padding:18px 20px;margin-bottom:12px'>
+        <div style='display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px'>
+            <div>
+                <span style='font-family:JetBrains Mono,monospace;font-size:10px;color:{a["color"]};
+                             letter-spacing:2px;font-weight:600'>{a["priority"]}</span>
+                <div style='font-family:Inter,sans-serif;font-size:15px;font-weight:700;
+                            color:#e2eaf4;margin-top:4px'>{a["title"]}</div>
+            </div>
+            <span style='font-family:JetBrains Mono,monospace;font-size:10px;color:#2a9d8f;
+                        background:rgba(42,157,143,0.1);border:1px solid rgba(42,157,143,0.2);
+                        border-radius:4px;padding:3px 8px;white-space:nowrap;margin-left:12px'>{a["sdg"]}</span>
+        </div>
+        <div style='display:grid;grid-template-columns:1fr 1fr;gap:16px'>
+            <div>
+                <div style='font-family:JetBrains Mono,monospace;font-size:9px;color:#3d5a73;
+                            letter-spacing:2px;margin-bottom:5px'>WHO SHOULD ACT</div>
+                <div style='font-family:Inter,sans-serif;font-size:12px;color:#7a9ab8'>{a["who"]}</div>
+                <div style='font-family:JetBrains Mono,monospace;font-size:9px;color:#3d5a73;
+                            letter-spacing:2px;margin:10px 0 5px'>WHAT TO DO</div>
+                <div style='font-family:Inter,sans-serif;font-size:12px;color:#7a9ab8;line-height:1.6'>{a["what"]}</div>
+            </div>
+            <div style='background:rgba(42,157,143,0.04);border:1px solid rgba(42,157,143,0.1);
+                        border-radius:6px;padding:12px'>
+                <div style='font-family:JetBrains Mono,monospace;font-size:9px;color:#2a9d8f;
+                            letter-spacing:2px;margin-bottom:8px'>EXPECTED IMPACT</div>
+                <div style='font-family:Inter,sans-serif;font-size:12px;color:#5a8a80;line-height:1.6'>{a["impact"]}</div>
+            </div>
+        </div>
+    </div>"""
+
+st.markdown(actions_html, unsafe_allow_html=True)
+
+# SDG alignment summary
+st.markdown("""
+<div style='background:#0f1d2e;border:1px solid #1c2f45;border-radius:8px;padding:18px 20px;margin-top:8px'>
+    <div style='font-family:JetBrains Mono,monospace;font-size:10px;color:#3d5a73;letter-spacing:2px;margin-bottom:12px'>
+        UN SUSTAINABLE DEVELOPMENT GOALS ADDRESSED
+    </div>
+    <div style='display:flex;flex-wrap:wrap;gap:8px'>
+        <span style='background:rgba(42,157,143,0.1);border:1px solid rgba(42,157,143,0.3);border-radius:4px;padding:5px 12px;font-family:JetBrains Mono,monospace;font-size:11px;color:#2a9d8f'>SDG 2 · Zero Hunger</span>
+        <span style='background:rgba(42,157,143,0.1);border:1px solid rgba(42,157,143,0.3);border-radius:4px;padding:5px 12px;font-family:JetBrains Mono,monospace;font-size:11px;color:#2a9d8f'>SDG 6 · Clean Water</span>
+        <span style='background:rgba(42,157,143,0.1);border:1px solid rgba(42,157,143,0.3);border-radius:4px;padding:5px 12px;font-family:JetBrains Mono,monospace;font-size:11px;color:#2a9d8f'>SDG 7 · Clean Energy</span>
+        <span style='background:rgba(42,157,143,0.1);border:1px solid rgba(42,157,143,0.3);border-radius:4px;padding:5px 12px;font-family:JetBrains Mono,monospace;font-size:11px;color:#2a9d8f'>SDG 10 · Reduced Inequalities</span>
+        <span style='background:rgba(42,157,143,0.1);border:1px solid rgba(42,157,143,0.3);border-radius:4px;padding:5px 12px;font-family:JetBrains Mono,monospace;font-size:11px;color:#2a9d8f'>SDG 11 · Sustainable Cities</span>
+        <span style='background:rgba(42,157,143,0.1);border:1px solid rgba(42,157,143,0.3);border-radius:4px;padding:5px 12px;font-family:JetBrains Mono,monospace;font-size:11px;color:#2a9d8f'>SDG 13 · Climate Action</span>
+        <span style='background:rgba(42,157,143,0.1);border:1px solid rgba(42,157,143,0.3);border-radius:4px;padding:5px 12px;font-family:JetBrains Mono,monospace;font-size:11px;color:#2a9d8f'>SDG 15 · Life on Land</span>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
 # FOOTER
 st.markdown("""
 <div class='footer'>
