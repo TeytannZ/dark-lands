@@ -1,0 +1,4 @@
+year,ndvi,rainfall_mm,nightlights,predicted
+2026,0.0815,219.86,1.0785,True
+2027,0.0826,235.39,1.1271,True
+2028,0.0836,250.92,1.1757,True
